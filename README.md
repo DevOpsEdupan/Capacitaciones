@@ -1,230 +1,320 @@
-# Guía para una Tutoría de 20 Horas sobre Cloud Run de Google Cloud Platform (GCP)
+# Guía de Tutoría de 20 Horas sobre Cloud Functions de Google Cloud Platform (GCP)
 
----
+## Tabla de Contenidos
+
+- [Introducción](#introducción)
+- [Módulo 1: Introducción a GCP y Cloud Functions](#módulo-1-introducción-a-gcp-y-cloud-functions-2-horas)
+- [Módulo 2: Configuración del Entorno](#módulo-2-configuración-del-entorno-2-horas)
+- [Módulo 3: Fundamentos de Cloud Functions](#módulo-3-fundamentos-de-cloud-functions-4-horas)
+- [Módulo 4: Cloud Functions y Eventos](#módulo-4-cloud-functions-y-eventos-3-horas)
+- [Módulo 5: Desarrollo Avanzado](#módulo-5-desarrollo-avanzado-4-horas)
+- [Módulo 6: Despliegue y Monitoreo](#módulo-6-despliegue-y-monitoreo-3-horas)
+- [Módulo 7: Optimización y Costos](#módulo-7-optimizacion-y-costos-1-hora)
+- [Módulo 8: Proyecto Final](#módulo-8-proyecto-final-1-hora)
+- [Recursos Adicionales](#recursos-adicionales)
+- [Conclusión](#conclusión)
 
 ## Introducción
 
-Esta guía está diseñada para ofrecer una estructura detallada para una tutoría de 20 horas centrada en **Cloud Run**, el servicio sin servidor de contenedores de Google Cloud Platform (GCP). El objetivo es proporcionar a los participantes una comprensión profunda y práctica de cómo desarrollar, desplegar y gestionar aplicaciones utilizando Cloud Run.
+Bienvenido a esta guía de tutoría de 20 horas sobre **Cloud Functions** de **Google Cloud Platform (GCP)**. Esta guía está diseñada para proporcionarte un recorrido completo desde los conceptos básicos hasta las prácticas avanzadas en el uso de Cloud Functions.
+
+### Objetivos de la Tutoría
+
+- Comprender los conceptos fundamentales de Cloud Functions en GCP.
+- Configurar y administrar el entorno de desarrollo.
+- Desarrollar, desplegar y monitorear funciones serverless.
+- Integrar Cloud Functions con otros servicios de GCP.
+- Optimizar el rendimiento y los costos.
+
+### Requisitos Previos
+
+- Conocimientos básicos de programación (JavaScript, Python, etc.).
+- Familiaridad con la línea de comandos.
+- Cuenta de Google Cloud Platform (se cubrirá en el Módulo 2).
 
 ---
 
-## Estructura de la Tutoría
+## Módulo 1: Introducción a GCP y Cloud Functions (2 horas)
 
-La tutoría se divide en **10 sesiones de 2 horas** cada una, combinando teoría y práctica.
+### 1.1 Introducción a Google Cloud Platform
 
----
+- **¿Qué es GCP?**
+  - Plataforma de servicios en la nube de Google.
+- **Principales servicios de GCP**
+  - Compute Engine, App Engine, Cloud Storage, etc.
 
-## Sesión 1: Introducción a Google Cloud Platform y Cloud Run
+### 1.2 Conceptos Básicos de Cloud Functions
 
-- **Duración:** 2 horas
+- **¿Qué son las Cloud Functions?**
+  - Funciones serverless que se ejecutan en respuesta a eventos.
+- **Ventajas del modelo serverless**
+  - Escalabilidad automática.
+  - Pago por uso real.
 
-### Temas:
+### 1.3 Casos de Uso
 
-- Visión general de Google Cloud Platform.
-- Conceptos básicos de computación en la nube.
-- Introducción al cómputo sin servidor (serverless).
-- ¿Qué es Cloud Run y cómo encaja en el ecosistema de GCP?
-- Casos de uso y ventajas de usar Cloud Run.
+- **Procesamiento de imágenes o videos al subirlos a Cloud Storage.**
+- **Respondedores HTTP para aplicaciones web o móviles.**
+- **Integraciones con APIs externas.**
 
-### Actividad Práctica:
-
-- Crear y configurar una cuenta en GCP.
-- Familiarización con la consola de GCP.
-- Explorar la interfaz de Cloud Run.
-
----
-
-## Sesión 2: Configuración del Entorno de Desarrollo
-
-- **Duración:** 2 horas
-
-### Temas:
-
-- Instalación y configuración del SDK de GCP.
-- Uso de Cloud Shell y Cloud SDK.
-- Introducción a Docker y contenedores.
-- Herramientas y entornos recomendados para desarrollo.
-
-### Actividad Práctica:
-
-- Instalación del SDK de GCP y Docker en el entorno local.
-- Ejecución de comandos básicos de `gcloud` y Docker.
-- Construcción de un contenedor simple.
+**Actividad:** Investigar y discutir posibles casos de uso en proyectos personales o profesionales.
 
 ---
 
-## Sesión 3: Desarrollo de Aplicaciones para Cloud Run
+## Módulo 2: Configuración del Entorno (2 horas)
 
-- **Duración:** 2 horas
+### 2.1 Creación de una Cuenta de GCP
 
-### Temas:
+- **Registro en GCP**
+  - [Crear cuenta](https://cloud.google.com/free)
+  - Uso del crédito gratuito inicial.
 
-- Requisitos para aplicaciones en Cloud Run.
-- Lenguajes y frameworks compatibles (Node.js, Python, Go, etc.).
-- Buenas prácticas de desarrollo para aplicaciones sin servidor.
-- Manejo de dependencias y configuraciones.
+### 2.2 Configuración del Proyecto
 
-### Actividad Práctica:
+- **Creación de un nuevo proyecto en la consola de GCP.**
+- **Habilitación de facturación.**
 
-- Crear una aplicación "Hello World" en el lenguaje de preferencia.
-- Pruebas locales de la aplicación.
+### 2.3 Instalación de Google Cloud SDK
 
----
+- **Descarga e instalación del SDK**
+  - [Instrucciones de instalación](https://cloud.google.com/sdk/docs/install)
+- **Inicialización y autenticación**
+  ```bash
+  gcloud init
+  ```
 
-## Sesión 4: Contenerización de Aplicaciones
+### 2.4 Configuración del Entorno de Desarrollo
 
-- **Duración:** 2 horas
+- **Elección del IDE (Visual Studio Code, IntelliJ, etc.).**
+- **Instalación de extensiones útiles.**
 
-### Temas:
-
-- Conceptos avanzados de Docker.
-- Creación de Dockerfiles eficientes.
-- Gestión de imágenes y etiquetas.
-- Optimización de imágenes para despliegue.
-
-### Actividad Práctica:
-
-- Escribir un `Dockerfile` para la aplicación desarrollada.
-- Construir y probar la imagen de Docker localmente.
-- Subir la imagen al Container Registry de GCP.
+**Actividad:** Configurar el entorno y validar la instalación ejecutando `gcloud --version`.
 
 ---
 
-## Sesión 5: Despliegue en Cloud Run
+## Módulo 3: Fundamentos de Cloud Functions (4 horas)
 
-- **Duración:** 2 horas
+### 3.1 Estructura de una Cloud Function
 
-### Temas:
+- **Componentes principales**
+  - Código fuente.
+  - Configuración de despliegue.
+- **Anatomía de una función**
 
-- Pasos para desplegar una aplicación en Cloud Run.
-- Configuración de parámetros de despliegue (región, memoria, escalado).
-- Despliegue mediante la consola y la línea de comandos.
-- Gestión de revisiones y tráfico.
+### 3.2 Lenguajes Soportados
 
-### Actividad Práctica:
+- **Node.js, Python, Go, Java, .NET**
+- **Selección del lenguaje según el caso de uso.**
 
-- Desplegar la aplicación contenerizada en Cloud Run.
-- Probar el endpoint público proporcionado por Cloud Run.
-- Experimentar con diferentes configuraciones de despliegue.
+### 3.3 Tipos de Cloud Functions
 
----
+- **Funciones desencadenadas por HTTP**
+  - Responden a solicitudes HTTP.
+- **Funciones basadas en eventos**
+  - Responden a eventos de GCP (Pub/Sub, Cloud Storage).
 
-## Sesión 6: Configuraciones y Variables de Entorno
+### 3.4 Primeros Pasos: Creación de una Función "Hello World"
 
-- **Duración:** 2 horas
+- **Ejemplo en Node.js:**
 
-### Temas:
+  ```javascript
+  exports.helloWorld = (req, res) => {
+    res.send('¡Hola, Mundo!');
+  };
+  ```
 
-- Uso de variables de entorno en Cloud Run.
-- Gestión de configuraciones sensibles.
-- Integración con Secret Manager.
-- Configuración de límites de recursos y tiempo de espera.
+- **Despliegue de la función:**
 
-### Actividad Práctica:
+  ```bash
+  gcloud functions deploy helloWorld --runtime nodejs14 --trigger-http --allow-unauthenticated
+  ```
 
-- Añadir variables de entorno a la aplicación.
-- Acceder a secretos almacenados en Secret Manager desde la aplicación.
-- Ajustar límites de memoria y tiempo de ejecución.
+- **Prueba de la función:**
 
----
+  ```bash
+  gcloud functions call helloWorld
+  ```
 
-## Sesión 7: Escalado y Rendimiento
-
-- **Duración:** 2 horas
-
-### Temas:
-
-- Cómo funciona el escalado automático en Cloud Run.
-- Configuración de parámetros de escalado (concurrencia, instancias máximas y mínimas).
-- Mejores prácticas para mejorar el rendimiento.
-- Manejo de estados y sesiones en un entorno sin servidor.
-
-### Actividad Práctica:
-
-- Configurar el escalado automático para diferentes cargas.
-- Realizar pruebas de carga y analizar el comportamiento.
-- Optimizar la aplicación para un mejor rendimiento.
+**Actividad:** Desplegar y probar una función "Hello World" en el lenguaje de preferencia.
 
 ---
 
-## Sesión 8: Integración Continua y Despliegue Continuo (CI/CD)
+## Módulo 4: Cloud Functions y Eventos (3 horas)
 
-- **Duración:** 2 horas
+### 4.1 Comprensión de Eventos en GCP
 
-### Temas:
+- **¿Qué son los eventos?**
+  - Acciones o cambios que ocurren en los servicios de GCP.
+- **Event Triggers**
+  - Configuración de funciones para responder a eventos específicos.
 
-- Introducción a Cloud Build.
-- Configuración de pipelines de CI/CD.
-- Uso de Cloud Build Triggers con repositorios de código (GitHub, GitLab).
-- Pruebas automatizadas y despliegues.
+### 4.2 Integración con Pub/Sub
 
-### Actividad Práctica:
+- **Configuración de un tópico de Pub/Sub.**
+- **Desarrollo de una función que responda a mensajes.**
 
-- Configurar un pipeline de CI/CD para la aplicación.
-- Realizar cambios en el código y observar el despliegue automático.
-- Implementar pruebas automatizadas en el pipeline.
+  ```python
+  def hello_pubsub(event, context):
+      import base64
+      if 'data' in event:
+          name = base64.b64decode(event['data']).decode('utf-8')
+      else:
+          name = 'Mundo'
+      print(f'¡Hola, {name}!')
+  ```
 
----
+- **Despliegue:**
 
-## Sesión 9: Monitorización y Registro
+  ```bash
+  gcloud functions deploy hello_pubsub --runtime python39 --trigger-topic mi-topico
+  ```
 
-- **Duración:** 2 horas
+### 4.3 Respondiendo a Cambios en Cloud Storage
 
-### Temas:
+- **Configuración de triggers para Cloud Storage.**
+- **Ejemplo: Procesamiento de imágenes al subirlas.**
 
-- Uso de Cloud Monitoring para supervisar aplicaciones.
-- Visualización y análisis de logs con Cloud Logging.
-- Configuración de alertas y métricas personalizadas.
-- Diagnóstico y solución de problemas comunes.
+### 4.4 Trabajando con Firestore Triggers
 
-### Actividad Práctica:
+- **Desencadenadores en cambios de base de datos.**
+- **Ejemplo práctico.**
 
-- Monitorizar métricas clave de la aplicación en tiempo real.
-- Analizar logs para identificar y solucionar errores.
-- Configurar alertas para eventos críticos.
-
----
-
-## Sesión 10: Seguridad y Mejores Prácticas
-
-- **Duración:** 2 horas
-
-### Temas:
-
-- Control de acceso con IAM (Identity and Access Management).
-- Autenticación y autorización en Cloud Run.
-- Conexiones seguras y uso de VPCs.
-- Mejores prácticas de seguridad y cumplimiento.
-
-### Actividad Práctica:
-
-- Configurar permisos y roles para el servicio.
-- Implementar autenticación mediante identidades de servicio.
-- Revisar y aplicar recomendaciones de seguridad.
+**Actividad:** Crear una función que responda a un evento de Pub/Sub o Cloud Storage.
 
 ---
 
-## Conclusión y Recursos Adicionales
+## Módulo 5: Desarrollo Avanzado (4 horas)
 
-- **Repaso de los conceptos aprendidos.**
-- **Discusión sobre casos de uso reales y experiencias.**
-- **Recursos para continuar el aprendizaje:**
-  - [Documentación oficial de Cloud Run](https://cloud.google.com/run/docs)
-  - Laboratorios prácticos en [Qwiklabs](https://www.qwiklabs.com/) y [Coursera](https://www.coursera.org/googlecloud)
-  - Comunidad y foros de [Google Cloud](https://cloud.google.com/community)
+### 5.1 Manejo de Dependencias
+
+- **Uso de archivos `package.json` (Node.js) o `requirements.txt` (Python).**
+- **Instalación de dependencias en el entorno de la función.**
+
+### 5.2 Variables de Entorno y Configuración
+
+- **Definición de variables de entorno en el despliegue.**
+  ```bash
+  gcloud functions deploy myFunction --set-env-vars "KEY=valor"
+  ```
+- **Acceso a variables en el código.**
+
+### 5.3 Autenticación y Seguridad
+
+- **Control de acceso con IAM.**
+- **Protección de funciones con autenticación.**
+
+### 5.4 Buenas Prácticas y Patrones Comunes
+
+- **Estructuración del código.**
+- **Manejo de errores y excepciones.**
+- **Logs y seguimiento.**
+
+**Actividad:** Refactorizar una función existente aplicando buenas prácticas.
 
 ---
 
-**Nota:** Esta guía es flexible y puede ajustarse según el nivel y las necesidades específicas de los participantes. Se recomienda complementar las sesiones con ejemplos prácticos y fomentar la participación activa para maximizar el aprendizaje.
+## Módulo 6: Despliegue y Monitoreo (3 horas)
+
+### 6.1 Desplegando Funciones con gcloud CLI
+
+- **Comandos avanzados de despliegue.**
+- **Automatización con scripts.**
+
+### 6.2 Monitoreo y Logging
+
+- **Visualización de logs en la consola de GCP.**
+- **Uso de `console.log` o equivalentes.**
+
+### 6.3 Uso de Cloud Monitoring
+
+- **Creación de métricas personalizadas.**
+- **Configuración de alertas.**
+
+### 6.4 Manejo de Errores y Depuración
+
+- **Herramientas de depuración en GCP.**
+- **Estrategias para resolver problemas comunes.**
+
+**Actividad:** Implementar monitoreo en una función y configurar una alerta básica.
 
 ---
 
-¡Prepárate para sumergirte en el mundo de Cloud Run y llevar tus habilidades de desarrollo en la nube al siguiente nivel!
+## Módulo 7: Optimización y Costos (1 hora)
 
-# Preguntas y Contacto
+### 7.1 Escalabilidad y Rendimiento
+
+- **Comprensión del modelo de escalado automático.**
+- **Configuración de límites de concurrencia.**
+
+### 7.2 Optimización de Costos
+
+- **Análisis de factores que afectan los costos.**
+- **Mejores prácticas para minimizar gastos.**
+
+### 7.3 Límites y Cuotas
+
+- **Revisión de cuotas por defecto.**
+- **Solicitudes de aumento de cuotas si es necesario.**
+
+**Actividad:** Analizar el costo estimado de una función y proponer optimizaciones.
+
+---
+
+## Módulo 8: Proyecto Final (1 hora)
+
+### 8.1 Desarrollo de un Proyecto Integrado
+
+- **Definición del proyecto (por ejemplo, una API RESTful).**
+- **Integración de múltiples funciones y servicios de GCP.**
+
+### 8.2 Revisión y Discusión
+
+- **Presentación de soluciones.**
+- **Feedback y mejoras sugeridas.**
+
+---
+
+## Recursos Adicionales
+
+- **Documentación Oficial de Cloud Functions:**
+  [Cloud Functions Documentation](https://cloud.google.com/functions/docs)
+- **Cursos en Línea:**
+  - [Google Cloud Training](https://cloud.google.com/training)
+- **Comunidades y Foros:**
+  - [Stack Overflow](https://stackoverflow.com/questions/tagged/google-cloud-functions)
+  - [Google Cloud Community](https://www.googlecloudcommunity.com)
+
+---
+
+## Conclusión
+
+A lo largo de esta tutoría de 20 horas, hemos explorado en profundidad las Cloud Functions de GCP, desde los conceptos básicos hasta las prácticas avanzadas. Has adquirido habilidades para desarrollar soluciones serverless eficientes y escalables.
+
+**Próximos Pasos:**
+
+- Aplicar lo aprendido en proyectos reales.
+- Explorar otros servicios de GCP para ampliar tus habilidades.
+- Continuar aprendiendo y manteniéndote actualizado con las novedades de GCP.
+
+¡Gracias por tu participación y éxito en tus futuros proyectos con Google Cloud Platform!
+
+---
+
+# Licencia
+
+Este material está licenciado bajo la [Licencia MIT](LICENSE).
+
+# Contacto
+
 
 Si tienes alguna pregunta o necesitas más información, no dudes en contactarme a través de [correo electrónico](mailto:leonardo_franco@edupan.com) o en [LinkedIn](https://www.linkedin.com/in/l-franco28/).
 
 ---
 
-© 2023 DevSecOps Edupan. Todos los derechos reservados.
+# Historias de Cambio
+
+- **Versión 1.0** - Creación inicial de la guía.
+
+---
+
+*Esta guía fue creada para fines educativos y debe ser adaptada según las necesidades específicas de la audiencia.*
